@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -66,3 +67,6 @@ Route::get('users/{user}/profile', [UserController::class, 'porfile'])->name('us
 
 Route::get('users/{user}/delete', [UserController::class, 'destroy'])->name('user.destroy');
 
+######################################## MAILS #################################
+
+Route::get('email/{numero}', [MailController::class, 'enviar']);

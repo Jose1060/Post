@@ -1,0 +1,1 @@
+<p>Hola {{$name}}, este es el numero que nos pasaste: {{$numero}}.</p>
