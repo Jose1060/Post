@@ -22,6 +22,16 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        if (User::all()->count() <= 0)
+        {
+            return [
+            'name' => 'Jose',
+            'email' => 'josean-1060@hotmail.com',
+            'email_verified_at' => now(),
+            'password' => '$2y$10$RILu37AxSs8PbysopOOv3e8JeWoVVzzAzjTYS7go/S4nbS0qdSyC.', // password
+            'remember_token' => Str::random(10),
+            ];
+        }
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
