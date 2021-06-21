@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Mail\BienvenidaMail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -64,7 +66,12 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        
+        $user = new User;
+        $user->name = $data['name'];
+        $user->email = $data['email'];
+        $correo = New BienvenidaMail($user);
+        Mail::to($user)->send($correo);
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
