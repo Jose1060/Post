@@ -69,7 +69,12 @@
                                     <a class="nav-link" href="{{ route('post.create') }}">{{ __('Create Post') }}</a>
                                 </li>
                             @endif
-
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="/notificaciones">
+                                    Notificaciones <span class="bagde badge-warning">{{ Auth::user()->unreadNotifications->count() }}</span>
+                                </a>
+                            </li>
                         
                             <li class="nav-item">
                                 <a class="nav-link" href=""></a>

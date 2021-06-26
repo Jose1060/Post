@@ -70,3 +70,6 @@ Route::get('users/{user}/delete', [UserController::class, 'destroy'])->name('use
 ######################################## MAILS #################################
 
 Route::get('email/{numero}', [MailController::class, 'enviar']);
+
+######################################## NOTIFY #################################
+Route::get('/notificaciones', [UserController::class, 'notificaciones']);
